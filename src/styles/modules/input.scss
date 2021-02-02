@@ -1,0 +1,40 @@
+// styles/modules/input.scss
+
+.input {
+  display: block;
+  width: 100%;
+  padding: 7 * $size 10 * $size;
+  font-size: 14 * $size;
+  line-height: 22 * $size;
+  color: $font-color;
+  background-color: $white-color;
+  background-clip: padding-box;
+  border: 1 * $size solid $border-color;
+  border-radius: 2 * $size;
+  transition: border-color 150ms ease-in-out, box-shadow 180ms ease-in-out;
+
+  &:hover {
+    border-color: rgba($border-color, 0.8);
+  }
+
+  &:focus {
+    border-color: $base-color;
+    outline: 0;
+    box-shadow: 0 0 0 3 * $size rgba($base-color, 0.38);
+  }
+
+  &:disabled {
+    color: $dark-color;
+    background-color: $disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+textarea {
+  &.input {
+    display: block;
+    width: 100%;
+    min-height: 120 * $size;
+    resize: none;
+  }
+}

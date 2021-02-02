@@ -1,0 +1,125 @@
+.layout-content {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+
+  .layout-nav {
+    position: relative;
+    display: flex;
+    width: 66 * $size;
+    overflow: hidden;
+    background-color: $base-color;
+    flex-direction: column;
+
+    .nav-item {
+      color: $white-color;
+    }
+  }
+
+  .nav-logo {
+    padding: 15 * $size 0;
+    text-align: center;
+    cursor: pointer;
+
+    img {
+      height: 28 * $size;
+    }
+  }
+
+  .nav-content {
+    width: 110%;
+    height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex: 1;
+
+    .nav-active {
+      color: $white-color;
+      background-color: $base-active-color;
+    }
+  }
+
+  .nav-view {
+    line-height: 16 * $size;
+  }
+
+  .nav-item {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 15 * $size 10 * $size 15 * $size 18 * $size;
+
+    .icon {
+      line-height: 28 * $size;
+      font-size: 28 * $size;
+      color: rgba($white-color, 0.8);
+      cursor: pointer;
+    }
+
+    span {
+      position: absolute;
+      bottom: -10%;
+      left: 0;
+      z-index: 100;
+      display: none;
+      padding: 8 * $size 10 * $size;
+      line-height: 16 * $size;
+      background-color: rgba($black-color, 0.68);
+      border-radius: 3 * $size;
+    }
+
+    &:hover {
+      .icon {
+        color: $white-color;
+      }
+
+      span {
+        display: block;
+        animation: fadeRin 0.35s ease;
+      }
+    }
+  }
+
+  .layout-grid {
+    width: 0;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    flex: 1;
+  }
+}
+
+.content {
+  width: 0;
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.layout-grid {
+  display: flex;
+
+  .grid-nav {
+    width: 200 * $size;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: $white-color;
+    border-right: 1 * $size solid $border-color;
+  }
+
+  .nav-item {
+    &.nav-active,
+    &:hover {
+      color: $white-color;
+      background-color: $base-active-color;
+    }
+  }
+
+  .content {
+    padding: 10 * $size;
+  }
+}

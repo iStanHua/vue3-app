@@ -1,0 +1,166 @@
+// styles/variables.scss
+
+$font-family: Microsoft YaHei, PingFang SC, Helvetica, Arial, sans-serif;
+$size: 0.01rem;
+$min-width: 1366px;
+
+// 主色调
+$base-color: #007bff;
+$base-active-color: #0062cc;
+$base-hover-color: #3e64ff;
+
+$black-color: #000;
+$white-color: #fff;
+// 背景色
+$bg-color: #fafbfc;
+
+$success-color: #19be6a;
+$warning-color: #f90;
+$danger-color: #ed3f14;
+$info-color: #878d99;
+
+$error-color: #ed3f14;
+
+// 边框色
+$border-color: #dfdfdf;
+// 字体色
+$font-color: #333;
+
+$red-color: #dc3545;
+$dark-color: #666;
+$gray-color: #999;
+$disabled-color: #f5f7fa;
+$placeholder-color: #aaa;
+
+// 解决浮动问题
+@mixin clearfix {
+  &:after,
+  &:before {
+    content: "";
+    display: table;
+    width: 0;
+    height: 0;
+    font-size: 0;
+  }
+
+  &:after {
+    visibility: hidden;
+    clear: both;
+  }
+}
+
+// 显示省略符号来代表被修剪的文本
+@mixin ellipsis {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+// 定义media-queries的最小最大宽度
+@mixin screen($min, $max) {
+  @if $min== "" {
+    @media screen and (max-width: $max) {
+      @content;
+    }
+  } @else if $max== "" {
+    @media screen and (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  }
+}
+
+// 三角形
+@mixin triangle($direction, $size, $border-color) {
+  content: "";
+  height: 0;
+  width: 0;
+  border: $size solid transparent;
+
+  @if $direction==top {
+    border-bottom-color: $border-color;
+  } @else if $direction==right {
+    border-left-color: $border-color;
+  } @else if $direction==bottom {
+    border-top-color: $border-color;
+  } @else if $direction==left {
+    border-right-color: $border-color;
+  }
+}
+
+// 乘方
+@function pow($number, $exp) {
+  $value: 1;
+
+  @if $exp>0 {
+    @for $i from 1 through $exp {
+      $value: $value * $number;
+    }
+  } @else if $exp < 0 {
+    @for $i from 1 through -$exp {
+      $value: $value / $number;
+    }
+  }
+
+  @return $value;
+}
+
+// 阶乘
+@function fact($number) {
+  $value: 1;
+
+  @if $number>0 {
+    @for $i from 1 through $number {
+      $value: $value * $i;
+    }
+  }
+
+  @return $value;
+}
+
+@function pi() {
+  @return 3.14159265359;
+}
+
+@function rad($angle) {
+  $unit: unit($angle);
+  $unitless: $angle / ($angle * 0 + 1);
+
+  // If the angle has 'deg' as unit, convert to radians.
+  @if $unit==deg {
+    $unitless: $unitless / 180 * pi();
+  }
+
+  @return $unitless;
+}
+
+@function sin($angle) {
+  $sin: 0;
+  $angle: rad($angle);
+
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $sin: $sin + pow(-1, $i) * pow($angle, (2 * $i + 1)) / fact(2 * $i + 1);
+  }
+
+  @return $sin;
+}
+
+@function cos($angle) {
+  $cos: 0;
+  $angle: rad($angle);
+
+  // Iterate a bunch of times.
+  @for $i from 0 through 10 {
+    $cos: $cos + pow(-1, $i) * pow($angle, 2 * $i) / fact(2 * $i);
+  }
+
+  @return $cos;
+}
+
+@function tan($angle) {
+  @return sin($angle) / cos($angle);
+}

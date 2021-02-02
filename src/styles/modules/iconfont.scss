@@ -1,0 +1,104 @@
+// styles/modules/iconfont.scss
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('../assets/fonts/iconfont.woff') format('woff'),
+    url('../assets/fonts/iconfont.ttf') format('truetype');
+}
+
+.icon {
+  font-family: 'iconfont' !important;
+  font-size: 16 * $size;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.i-volume-x:before {
+  content: '\e6d7';
+}
+
+.i-volume:before {
+  content: '\e6d8';
+}
+
+.i-volume-1:before {
+  content: '\e6d9';
+}
+
+.i-pause:before {
+  content: '\e611';
+}
+
+.i-exit-fullscreen:before {
+  content: '\e622';
+}
+
+.i-pip:before {
+  content: '\e606';
+}
+
+.i-fullscreen:before {
+  content: '\e618';
+}
+
+.i-play:before {
+  content: '\e613';
+}
+
+.i-more:before {
+  content: '\e6fb';
+}
+
+.i-component:before {
+  content: '\e66d';
+}
+
+.i-plugin:before {
+  content: '\e681';
+}
+
+.i-canvas:before {
+  content: '\e70b';
+}
+
+.i-game:before {
+  content: '\e807';
+}
+
+.i-minus:before {
+  content: '\e768';
+}
+
+.i-arrow-down:before {
+  content: '\ea46';
+}
+
+.i-arrow-right:before {
+  content: '\e608';
+}
+
+.i-arrow-up:before {
+  content: '\ea44';
+}
+
+.i-arrow-left:before {
+  content: '\ea45';
+}
+
+.i-clear:before {
+  content: '\e743';
+}
+
+.i-copy:before {
+  content: '\ea43';
+}
+
+.i-plus:before {
+  content: '\e646';
+}
+
+.i-close:before {
+  content: '\e8b5';
+}
